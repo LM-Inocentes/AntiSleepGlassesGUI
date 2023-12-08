@@ -1,0 +1,65 @@
+
+
+<ng-container *ngIf="user$ | async as user">
+    <body>
+        <h1>User 1</h1>
+    <nav>
+        <ng-container *ngIf="!user.isOnline; else elseBlock1">
+            <a style="border-radius: 8px; width: 100px; ">
+                <img src="../../../assets/images/disabled.png" alt="Image Description" style="width: 100px; height: auto;">
+            </a>
+            <a style="border-radius: 8px; width: 250px; background-color: #34495e;">
+            <img src="../../../assets/images/eyelogo_disabled.png" alt="Image Description" style="width: 100px; height: auto;">
+            </a>
+        </ng-container>
+        <ng-template #elseBlock1>
+            <ng-container *ngIf="user.isBuzzerOn; else elseBlock">
+                <a style="border-radius: 8px; width: 100px; ">
+                    <img src="../../../assets/images/drowsy.png" alt="Image Description" style="width: 100px; height: auto;">
+                </a>
+                <a style="border-radius: 8px; width: 250px; background-color: #6e0f05;">
+                <img src="../../../assets/images/eyelogo_red.png" alt="Image Description" style="width: 100px; height: auto;">
+                </a>
+            </ng-container>
+                
+            <ng-template #elseBlock>
+                <a style="border-radius: 8px; width: 100px; ">
+                    <img src="../../../assets/images/awake.png" alt="Image Description" style="width: 100px; height: auto;">
+                </a>
+                <a style="border-radius: 8px; width: 250px; background-color: #9be9d9;">
+                <img src="../../../assets/images/eyelogo_green.png" alt="Image Description" style="width: 100px; height: auto;">
+                </a>
+            </ng-template>
+        </ng-template>
+            
+            <ng-container *ngIf="user.isOnline; else elseBlock2">
+                <a style="border-radius: 8px; width: 250px; background-color: #9be9d9">
+                <img src="../../../assets/images/online_green.png" alt="Image Description" style="width: 100px; height: auto;">
+                </a>
+                <a style="border-radius: 8px; width: 100px; ">
+                    <img src="../../../assets/images/online_text.png" alt="Image Description" style="width: 100px; height: auto;">
+                </a>
+            </ng-container>
+            <ng-template #elseBlock2>
+                <a style="border-radius: 8px; width: 250px; background-color: #a81e0e;">
+                <img src="../../../assets/images/online_red.png" alt="Image Description" style="width: 100px; height: auto;">
+                </a>
+                <a style="border-radius: 8px; width: 100px; ">
+                    <img src="../../../assets/images/offline.png" alt="Image Description" style="width: 100px; height: auto;">
+                </a>
+            </ng-template>
+    </nav>
+    </body>
+</ng-container>
+
+<div *ngFor="let count of counts">
+    <h1>User {{count+1}}</h1>
+    <app-duplicate></app-duplicate>
+</div>
+<div class="center-container">
+    <button class="button-30" role="button" (click)="duplicateUser()">Add User</button>
+    <button class="button-30" role="button" (click)="deleteUser()">Delete User</button>
+</div>
+
+
+
