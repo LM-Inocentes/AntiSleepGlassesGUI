@@ -1,14 +1,14 @@
 {
   "targets": {
-    "angular-sign-up": {
+    "anti-sleep-glasses": {
       "hosting": {
-        "angular-sign-up": [
-          "angular-sign-up"
+        "anti-sleep-glasses": [
+          "anti-sleep-glasses"
         ]
       }
     }
   },
   "projects": {
-    "default": "angular-sign-up"
+    "default": "anti-sleep-glasses"
   }
 }
